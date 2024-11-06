@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ReflectY - Ontwikkel jezelf!</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+		<style>
+			.accordion-button:not(.collapsed) {
+				background-color: orange;
+				color: white; /* Optional: Change text color for better contrast */
+			}
+
+			.navbar-shrink {
+				padding-top: 0.5rem;
+				padding-bottom: 0.5rem;
+				transition: padding 0.3s;
+			}
+
+			/* Centered overlay for logo and subtitle */
+			.carousel-overlay {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+				color: white;
+				z-index: 10;
+			}
+
+			/* Logo styling */
+			.carousel-logo img {
+				width: 320px; /* Adjust size as needed */
+			}
+
+			/* Typewriter effect styling */
+			.typewriter {
+				font-size: 1.5rem;
+				font-weight: 100;
+				margin-top: 10px;
+				white-space: nowrap;
+				overflow: hidden;
+				border-right: 2px solid white;
+				animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+			}
+
+			/* Typewriter animation */
+			@keyframes typing {
+				from {
+					width: 0;
+				}
+				to {
+					width: 100%;
+				}
+			}
+
+			@keyframes blink-caret {
+				from,
+				to {
+					border-color: transparent;
+				}
+				50% {
+					border-color: white;
+				}
+			}
+
+			@media (max-width: 767.98px) {
+				.container-fluid .col-md-6.mx-auto.px-5 {
+					padding-top: 40px;
+					padding-bottom: 40px;
+				}
+			}
+
+			.orange {
+				color: orange;
+			}
+			.carousel-overlay {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+				color: white;
+				z-index: 10;
+			}
+
+			.carousel-logo img {
+				width: 320px;
+			}
+
+			.typewriter {
+				font-size: 1.5rem;
+				font-weight: 100;
+				margin-top: 10px;
+				white-space: nowrap;
+				overflow: hidden;
+				border-right: 2px solid white;
+				animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+			}
+
+			@keyframes typing {
+				from {
+					width: 0;
+				}
+				to {
+					width: 100%;
+				}
+			}
+
+			@keyframes blink-caret {
+				from,
+				to {
+					border-color: transparent;
+				}
+				50% {
+					border-color: white;
+				}
+			}
+
+			/* Down Chevron Button Styling */
+			.down-chevron {
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 2rem;
+				color: white;
+				text-decoration: none;
+				z-index: 10;
+				animation: flash 1.5s infinite;
+			}
+
+			@keyframes flash {
+				0%,
+				100% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0.5;
+				}
+			}
+
+			.down-chevron i {
+				font-size: 2.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+			<div class="container justify-content-center">
+				<a class="navbar-brand" href="#">Reflect<span class="orange">Y</span></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#welkom">Welkom</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#voorstellen">Voorstellen</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#werkwijze">Werkwijze</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Carousel -->
+		<section id="Home">
+			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+
+				<!-- Centered Logo and Typewriter Text Overlay -->
+				<div class="carousel-overlay">
+					<div class="carousel-logo">
+						<img src="reflectyLogo.svg" alt="Logo Reflecty" />
+					</div>
+					<div class="typewriter" id="carouselTypewriter">Explore the Beauty of Nature</div>
+				</div>
+
+				<!-- Carousel Items -->
+				<div class="carousel-inner">
+					<div class="carousel-item active" data-text="Ontwikkel jezelf!">
+						<img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZvcmVzdHxlbnwwfHx8fDE2NTc5ODU4Njg&ixlib=rb-1.2.1&q=80&w=1080" class="d-block w-100" alt="Slide 1" style="max-height: 100vh; object-fit: cover" />
+					</div>
+					<div class="carousel-item" data-text="Op welke manier kan ik mijn grenzen stellen en assertiever worden? ">
+						<img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDd8fG5hdHVyZXxlbnwwfHx8fDE2NTc5OTIyMjk&ixlib=rb-1.2.1&q=80&w=1080" class="d-block w-100" alt="Slide 2" style="max-height: 100vh; object-fit: cover" />
+					</div>
+					<div class="carousel-item" data-text="Deze teksten kan je zelf aanpassen">
+						<img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fG5hdHVyZXxlbnwwfHx8fDE2NTgwMzIzNzM&ixlib=rb-1.2.1&q=80&w=1080" class="d-block w-100" alt="Slide 3" style="max-height: 100vh; object-fit: cover" />
+					</div>
+				</div>
+
+				<!-- Carousel Controls -->
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+
+				<!-- Down Chevron Button -->
+				<a href="#welkom" class="down-chevron">
+					<i class="fas fa-chevron-down"></i>
+				</a>
+			</div>
+		</section>
+		<section id="voorstellen">
+			<!-- Text and Image Section -->
+			<div class="container-fluid" style="background-color: #f8f9fa">
+				<div class="row align-items-center">
+					<!-- Text Section -->
+					<div class="col-md-6 mx-auto px-5 text-section order-md-last order-first" style="max-width: 600px">
+						<h2>Voorstellen</h2>
+						<div class="accordion mt-4" id="accordionExample">
+							<!-- Collapse 1 -->
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingOne">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Haptonomie en Contact</button>
+								</h2>
+								<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Haptonomie gaat over het verbinden van je lichaam en hoofd en in contact staan met jezelf en met de ander. Je lichaam vertelt vaak veel over hoe het met je gaat. Vaak hollen we door en negeren we deze signalen in het lichaam. Met haptonomie leer je meer te voelen wat je lichaam je vertelt en je hier bewust van te worden. Je ontdekt wat goed voor je is en wat juist niet. Wat kost je energie of wat geeft je energie. Als je beter weet wat goed voor jou is en wat goed voelt, kun je ook anders contact aangaan of maak je andere keuzes.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Collapse 2 -->
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingTwo">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Levenservaring en Groei</button>
+								</h2>
+								<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Mijn levenservaring heeft me gevormd tot wie ik ben vandaag. Ik heb net zoals bijna iedereen de ups en downs van het leven ervaren, en elk moment heeft bijgedragen aan mijn persoonlijke groei. Deze ervaringen hebben me ook een dieper inzicht gegeven in de uitdagingen waarmee anderen kunnen worstelen, en hebben mijn empathie en begrip versterkt.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Collapse 3 -->
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingThree">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Professionele Achtergrond</button>
+								</h2>
+								<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>In het professionele leven werk ik al lange tijd in het HR-vakgebied. Ik heb ervaring in het coachen opgedaan in diverse branches en organisaties. Elke branche en organisatie heeft zijn eigen dynamiek. Ik vind het leerzaam en boeiend om de mogelijkheid te hebben gehad om met allerlei verschillende mensen in verschillende branches te werken. Iedereen heeft zijn eigen verhaal en zijn/haar eigen perspectief.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Collapse 4 -->
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingFour">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Mijn Coaching Aanpak</button>
+								</h2>
+								<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Mijn aanpak qua coaching is praktisch en ondersteunend. Samen gaan we op zoek naar wat voor jou belangrijk is en hoe je stappen kunt zetten om daar te komen. Bij coaching op haptonomische basis draait het niet alleen om denken en praten maar vooral ook om voelen en ervaren. We bekijken samen hoe je je voelt, wat je belangrijk vindt en waar je kracht ligt.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Collapse 5 (Last Paragraph and UL) -->
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingFive">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Sessies en Vragen</button>
+								</h2>
+								<div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Tijdens onze sessies gaan we op zoek naar patronen in je leven. We ontdekken wat je vooruitgang belemmert en wat je nodig hebt om verder te komen. Door bewust te worden van deze patronen, leer je beter begrijpen waarom je dingen doet zoals je ze doet. Dit helpt je om bewuste keuzes te maken die bij jou passen en die je meer voldoening geven.</p>
+										<p>Je gaat aan de slag met vragen zoals:</p>
+										<ul>
+											<li>Wie ben ik?</li>
+											<li>Wat drijft mij?</li>
+											<li>Wat belemmert mij?</li>
+											<li>Hoe kan ik veerkrachtiger worden en beter omgaan met veranderingen in mijn leven?</li>
+											<li>Welke stappen kan ik zetten om mijn zelfvertrouwen te vergroten?</li>
+											<li>Hoe kan ik mijn communicatieve vaardigheden verbeteren?</li>
+											<li>Op welke manier kan ik mijn grenzen stellen en assertiever worden?</li>
+											<li>Wat zijn gezonde manieren om stress te verminderen en innerlijke rust te vinden?</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Image Section -->
+					<div class="col-md-6 p-0 image-section">
+						<img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDB8fG5hdHVyZXxlbnwwfHx8fDE2NTgwMzIzNzM&ixlib=rb-1.2.1&q=80&w=1080" class="img-fluid w-100 h-100" alt="Mountain Landscape" style="max-height: 600px; object-fit: cover" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="werkwijze">
+			<!-- Text and Image Section -->
+			<div class="container-fluid" style="background-color: orange">
+				<div class="row d-flex align-items-stretch">
+					<!-- Text Section -->
+					<div class="col-md-6 mx-auto px-5 py-5" style="max-width: 600px">
+						<h2>Werkwijze</h2>
+						<p>We beginnen met een kennismakingsgesprek om jouw doelen, behoeften en verwachtingen te bespreken. Het is belangrijk dat we een klik hebben voordat we verder gaan.</p>
+
+						<p>Als we een goede klik hebben, kijken we naar je huidige situatie en zoeken we naar eventuele belemmeringen of patronen. We stellen samen duidelijke en haalbare doelen op voor het coachingstraject. Ik gebruik haptonomische oefeningen en technieken om je te helpen meer in contact te komen met jezelf en je gevoelens. Tijdens de sessies krijg je feedback en reflecteren we samen op je ervaringen en voortgang.</p>
+
+						<p>We maken concrete actieplannen met specifieke stappen om je doelen te bereiken. Jij bepaalt wat je wilt bereiken en welk resultaat je verwacht. Stel jezelf de vraag welke veranderingen je wilt zien om het programma succesvol te maken. Dit helpt je om verantwoordelijkheid te nemen en het meeste uit het traject te halen.</p>
+
+						<p>Na afloop kunnen we, als je dat wilt, follow-up sessies plannen om je voortgang te bespreken en eventuele nieuwe uitdagingen aan te pakken. Zo blijf je ondersteund, zelfs nadat het hoofdtraject is afgerond.</p>
+
+						<p>De duur van elke sessie is 1 uur.</p>
+					</div>
+
+					<!-- Image Section -->
+					<div class="col-md-6 p-0 d-flex">
+						<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDd8fG5hdHVyZXxlbnwwfHx8fDE2NTc5OTIyMjk&ixlib=rb-1.2.1&q=80&w=1080" alt="Nature Image" class="img-fluid w-100 h-100" style="object-fit: cover" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact">
+			<!-- Footer -->
+			<footer class="bg-white text-center text-lg-start pt-5">
+				<div class="container p-4">
+					<div class="row">
+						<div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+							<h5 class="text-uppercase">ReflectY</h5>
+							<p>ReflectY helpt je om je persoonlijke en professionele doelen te bereiken door middel van reflectie en analyse.</p>
+						</div>
+						<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+							<h5 class="text-uppercase">Links</h5>
+							<ul class="list-unstyled mb-0">
+								<li>
+									<a href="#" class="text-dark">Home</a>
+								</li>
+								<li>
+									<a href="#welkom" class="text-dark">Welkom</a>
+								</li>
+								<li>
+									<a href="#voorstellen" class="text-dark">Voorstellen</a>
+								</li>
+								<li>
+									<a href="#werkwijze" class="text-dark">Werkwijze</a>
+								</li>
+								<li>
+									<a href="#contact" class="text-dark">Contact</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+							<h5 class="text-uppercase">Contact</h5>
+							<ul class="list-unstyled mb-0">
+								<li>
+									<a href="mailto:info@reflecty.com" class="text-dark">info@reflecty.nl</a>
+								</li>
+								<li>
+									<a href="tel:+1234567890" class="text-dark">+123 456 7890</a>
+								</li>
+								<li>
+									<a href="#!" class="text-dark">Adres</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="text-center p-3 mt-3" style="background-color: rgba(0, 0, 0, 0.2)">© 2024 ReflectY</div>
+			</footer>
+		</section>
+
+		<!-- Typewriter Effect JavaScript -->
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const typewriterElement = document.getElementById("carouselTypewriter");
+				const carousel = document.getElementById("carouselExampleIndicators");
+
+				function typeEffect(text) {
+					typewriterElement.style.animation = "none"; // Reset the animation
+					setTimeout(() => {
+						typewriterElement.style.animation = ""; // Restart the animation
+						typewriterElement.innerHTML = text;
+					}, 10); // Delay to reset typewriter effect
+				}
+
+				// Change typewriter text on slide change
+				carousel.addEventListener("slid.bs.carousel", function (event) {
+					const activeSlide = event.target.querySelector(".carousel-item.active");
+					const newText = activeSlide.getAttribute("data-text");
+					typeEffect(newText);
+				});
+
+				// Initial typewriter text for the first slide
+				typeEffect(typewriterElement.parentElement.parentElement.querySelector(".carousel-item.active").getAttribute("data-text"));
+			});
+		</script>
+
+		<!-- Script to dynamically adjust image height -->
+		<script>
+			window.addEventListener("load", function () {
+				const textSection = document.getElementById("text-section");
+				const imageSection = document.getElementById("image-section");
+
+				function adjustImageHeight() {
+					if (textSection.offsetHeight > 500) {
+						imageSection.style.maxHeight = `${textSection.offsetHeight}px`;
+					} else {
+						imageSection.style.maxHeight = "500px";
+					}
+				}
+
+				// Run adjustment on load
+				adjustImageHeight();
+
+				// Listen for resizing or any other potential changes
+				window.addEventListener("resize", adjustImageHeight);
+			});
+		</script>
+
+		<script>
+			window.addEventListener("scroll", function () {
+				const navbar = document.querySelector(".navbar");
+				if (window.scrollY > 50) {
+					navbar.classList.add("navbar-shrink");
+				} else {
+					navbar.classList.remove("navbar-shrink");
+				}
+			});
+		</script>
+
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-dyYq1m8HOdoxqxXN7q5XyZlYtV1l5IWGk5FcI1KwRz5LSyJ5PqTn1aKjTeHsLJLP" crossorigin="anonymous" />
+	</body>
+</html>
