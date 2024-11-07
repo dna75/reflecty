@@ -85,6 +85,10 @@
 					padding-top: 40px;
 					padding-bottom: 40px;
 				}
+
+				.typewriter {
+					font-size: 1rem;
+				}
 			}
 
 			.orange {
@@ -114,25 +118,6 @@
 				animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
 			}
 
-			@keyframes typing {
-				from {
-					width: 0;
-				}
-				to {
-					width: 100%;
-				}
-			}
-
-			@keyframes blink-caret {
-				from,
-				to {
-					border-color: transparent;
-				}
-				50% {
-					border-color: white;
-				}
-			}
-
 			/* Down Chevron Button Styling */
 			.down-chevron {
 				position: absolute;
@@ -158,7 +143,7 @@
 				<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Home</a>
+							<a class="nav-link active" aria-current="page" href="/">Home</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#welkom">Welkom</a>
@@ -192,7 +177,6 @@
 						<img src="reflectyLogo.svg" alt="Logo Reflecty" />
 					</div>
 					<div class="typewriter" id="carouselTypewriter">ReflectY - Ontwikkel jezelf!</div>
-					<i class="fa-solid fa-circle-chevron-down"></i>
 				</div>
 
 				<!-- Carousel Items -->
@@ -371,7 +355,7 @@
 							<h5 class="text-uppercase">Links</h5>
 							<ul class="list-unstyled mb-0">
 								<li>
-									<a href="#" class="text-dark">Home</a>
+									<a href="/" class="text-dark">Home</a>
 								</li>
 								<li>
 									<a href="#welkom" class="text-dark">Welkom</a>
