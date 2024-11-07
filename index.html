@@ -117,7 +117,18 @@
 				color: orange;
 				text-decoration: none;
 				z-index: 10;
-				animation: flash 1.5s infinite;
+				animation: flash 3s infinite;
+			}
+
+			/* Keyframes for Flashing Effect */
+			@keyframes flash {
+				0%,
+				100% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
 			}
 
 			@media (max-width: 767.98px) {
